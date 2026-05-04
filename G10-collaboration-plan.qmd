@@ -1,0 +1,98 @@
+---
+title: "Collaboration templates, Assignment 2"
+author: "Statistical Thinking (ETC2420 / ETC5242)"
+date-format: "[Semester 1,] 2026"
+date: "2026"
+toc: true
+format:
+  html:
+    embed-resources: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+This document contains templates for the two mandatory collaboration
+components for Assignment 2 that need to be included as appendices in
+your final submission. The collaboration portion of your grade is
+assessed based on the quality and evidence provided in these templates.
+
+You are not required to use these exact templates. They are provided for
+your convenience. Feel free to adapt the design and content of these
+reports to better suit your group.
+
+# Appendix 1: Project plan & timeline
+
+**Submission date:** \[18 May 2026\]
+
+**Group number:** \[10\]
+
+**Members:** \[Jacqueline Gunawan, Byron Boukouvalas, Jacob Francis,
+Taylor Smart\]
+
+## Communication & version control
+
+-   **Communication channel(s):** \[WhatsApp\]
+-   **File sharing method:** \[GitHub\]
+
+## Task allocation
+
+To ensure quality and cohesion, every task must have at least one
+"Analyst" and at least one "Reviewer" who verifies the code and logic of
+the Analysts. We recommend that all members be involved in every Task in
+some way.
+
+| Task | Analysts | Reviewers | Target completion date |
+|:---|:---|:---|:---|
+| **Task 1** |  |  |  |
+| **Task 2** |  |  |  |
+| **Task 3** |  |  |  |
+| **Task 4** |  |  |  |
+| **Task 5** |  |  |  |
+| **Final merging, formatting & reproducibility check** |  |  |  |
+
+## Meeting schedule
+
+List your planned synchronous meetings (Zoom or in-person).
+
+-   **Meeting 1**
+    -   \[4 May 2026/6pm/Zoom\]
+    -   \[Collaboration plan/discuss the plan for completing the
+        assignment\]
+-   **Meeting 2**
+    -   \[9 May 2026/7:30pm/Zoom\]
+    -   \[First checkpoint/members catch up on progress and handover for
+        task 2\]
+-   **Meeting 3**
+    -   \[Date/Time/Venue\]
+    -   \[Purpose/Goals for this meeting\]
+
+# Appendix 2: Statement of contributions
+
+## Contribution summary
+
+| Member name | Specific tasks performed | Hours contributed (approx.) |
+|:------------|:-------------------------|:----------------------------|
+| Member A    |                          |                             |
+| Member B    |                          |                             |
+| Member C    |                          |                             |
+| Member D    |                          |                             |
+
+## Cross-review table
+
+By signing below, you certify that you have reviewed the work of your
+teammates and that the final report represents a unified effort.
+
+| Task       | Reviewed by (name of primary Reviewer) | Key feedback provided |
+|:-----------|:---------------------------------------|:----------------------|
+| **Task 1** |                                        |                       |
+| **Task 2** |                                        |                       |
+| **Task 3** |                                        |                       |
+| **Task 4** |                                        |                       |
+| **Task 5** |                                        |                       |
+
+## Reflections on key challenges
+
+*Briefly describe one or more technical challenges the group faced and
+how you collaborated to solve it (e.g., particular analysis steps in
+some of the Tasks).*
