@@ -44,12 +44,12 @@ some way.
 
 | Task | Analysts | Reviewers | Target completion date |
 |:---|:---|:---|:---|
-| **Task 1** |  |  |  |
-| **Task 2** |  |  |  |
-| **Task 3** |  |  |  |
-| **Task 4** |  |  |  |
-| **Task 5** |  |  |  |
-| **Final merging, formatting & reproducibility check** |  |  |  |
+| **Task 1** |Jacqueline, Jacob|Byron, Taylor|11 May|
+| **Task 2** |Jacqueline, Byron|Jacob, Taylor|11 May|
+| **Task 3** |Byron|Jacqueline, Jacob, Taylor|11 May|
+| **Task 4** |Jacob, Taylor|Jacqueline, Byron|11 May|
+| **Task 5** |Taylor|Jacqueline, Jacob, Byron|11 May|
+| **Final merging, formatting & reproducibility check** |  |  |16 May 2026|
 
 ## Meeting schedule
 
@@ -61,11 +61,10 @@ List your planned synchronous meetings (Zoom or in-person).
         assignment\]
 -   **Meeting 2**
     -   \[9 May 2026/7:30pm/Zoom\]
-    -   \[First checkpoint/members catch up on progress and handover for
-        task 2\]
+    -   \[First checkpoint/collaboration on any difficulties on tasks\]
 -   **Meeting 3**
-    -   \[Date/Time/Venue\]
-    -   \[Purpose/Goals for this meeting\]
+    -   \[16 May/7:30pm/Zoom\]
+    -   \[Final Checkup on formatting and editing/consolidation for final paper\]
 
 # Appendix 2: Statement of contributions
 
