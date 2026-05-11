@@ -1,0 +1,131 @@
+---
+title: "Group10_A2"
+authors: "Jacqueline Gunawan, Byron Boukouvalas, Jacob Francis,
+Taylor Smart"
+format: 
+  html: default
+  pdf: default
+editor: visual
+execute:
+  echo: FALSE
+  warning: FALSE
+  messages: FALSE
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  eval    = TRUE,
+  fig.height = 4,
+  fig.width  = 7
+)
+
+library(tidyverse)
+library(kableExtra)
+library(gridExtra)
+
+theme_set(theme_minimal(base_size = 12))
+trees <- read_csv("data/trees.csv")
+```
+
+## Task 1
+
+### Summary Table:
+
+```{r}
+# Summary of age, ULE, and origin counts by precinct
+summary_table <- trees |>
+  group_by(precinct) |>
+  summarise(
+    n            = n(),
+    age_mean     = round(mean(age), 1),
+    age_median   = round(median(age), 1),
+    age_sd       = round(sd(age), 1),
+    age_range    = paste0(min(age), "–", max(age)),
+    ule_mean     = round(mean(ule), 1),
+    ule_median   = round(median(ule), 1),
+    ule_sd       = round(sd(ule), 1),
+    ule_range    = paste0(min(ule), "–", max(ule)),
+    n_native     = sum(origin == "Native"),
+    n_introduced = sum(origin == "Introduced")
+  )
+
+# Render table with grouped column headers
+summary_table |>
+  kable(col.names = c("Precinct", "N",
+                      "Mean", "Median", "SD", "Range",
+                      "Mean", "Median", "SD", "Range",
+                      "Native", "Introduced"),
+        caption = "Table 1: Summary of tree age, ULE, and species origin by precinct") |>
+  kable_styling(full_width = TRUE) |>
+  add_header_above(c(" " = 2,
+                     "Age (years)" = 4,
+                     "ULE (years)" = 4,
+                     "Origin (count)" = 2))
+```
+
+### Distribution:
+
+#### Overall:
+
+```{r}
+# Overall distribution of age
+p_age <- ggplot(trees, aes(x = age, y = after_stat(density))) +
+  geom_histogram(bins = 30, fill = "steelblue", colour = "steelblue", alpha = 0.4) +
+  labs(title = "Tree Age", x = "Age (years)", y = "Density")
+
+# Overall distribution of ULE
+p_ule <- ggplot(trees, aes(x = ule, y = after_stat(density))) +
+  geom_histogram(bins = 30, fill = "steelblue", colour = "steelblue", alpha = 0.4) +
+  labs(title = "Useful Life Expectancy", x = "ULE (years)", y = "Density")
+
+# Overall distribution of species origin
+p_origin <- ggplot(trees, aes(x = origin, fill = origin)) +
+  geom_bar(alpha = 0.7) +
+  labs(title = "Species Origin", x = "Origin", y = "Count") +
+  theme(legend.position = "none")
+
+# Combine into one figure
+grid.arrange(p_age, p_ule, p_origin, ncol = 3)
+```
+
+#### By precinct:
+
+```{r}
+# Age by precinct
+p_age_pre <- ggplot(trees, aes(x = precinct, y = age, fill = precinct)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = 21) +
+  labs(title = "Tree Age by Precinct", x = "Precinct", y = "Age (years)") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+# ULE by precinct
+p_ule_pre <- ggplot(trees, aes(x = precinct, y = ule, fill = precinct)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = 21) +
+  labs(title = "ULE by Precinct", x = "Precinct", y = "ULE (years)") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Origin by precinct
+p_origin_pre <- ggplot(trees, aes(x = precinct, fill = origin)) +
+  geom_bar(position = "fill", alpha = 0.7) +
+  labs(title = "Species Origin by Precinct", x = "Precinct",
+       y = "Proportion", fill = "Origin") +
+  scale_y_continuous(labels = scales::percent) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Combine
+grid.arrange(p_age_pre, p_ule_pre, p_origin_pre, ncol = 2)
+```
+
+### Summary:
+
+Across five distinct precincts, the urban forest comprises 630 trees with an average age of 30 years. While individual ages span from 1 to 146 years, the population leans heavily toward younger specimens. Southbank stands out as the primary home for the forest's "elderly" trees, which—while historically significant—generally possess a lower remaining Useful Life Expectancy (ULE) than their younger counterparts. Overall, the forest maintains a consistent ULE of approximately 50 years across all areas, and ULE remains broadly consistent across precincts, suggesting no single area faces a disproportionate replacement burden in the near term.
+
+The botanical makeup is almost perfectly divided between native (313) and introduced (317) species, though the distribution is far from uniform. High-density areas like the CBD and Docklands favor introduced trees, whereas Carlton and East Melbourne feature a more integrated blend of local and foreign flora.
+
+## Task 2
